@@ -14,7 +14,7 @@ function renerator(){
 
   let men = [];
   let women = [];
-  let phone = [];
+  let nat = [];
 
   button.classList.add('hidden');
   preloader.classList.add('visible');
@@ -30,7 +30,7 @@ function renerator(){
       setTimeout(function () {
         preloader.classList.remove('visible');
       }, 3000);
-      
+
       let loadUsers = myRequest.response.results;
       
       loadUsers.forEach(function(author) {
@@ -101,8 +101,8 @@ function renerator(){
           women.push(author);
         }
 
-        // Телефон
-        phone.push(author.phone);
+        // Hациональности
+        nat.push(author.nat);
 
       })
 
@@ -147,14 +147,14 @@ function renerator(){
 
         let object = [];
 
-        phone.forEach(function(value) {
+        nat.forEach(function(value) {
           object[value] = object[value] + 1 || 1;
         });
         
         for (let value in object) {
           let applicationcode = document.createElement('div');
           applicationcode.classList.add('application__code');
-          applicationcode.innerHTML = `${value} - ${object[value]} ${object[value] == 1 ? 'user' : 'user'}`;
+          applicationcode.innerHTML = `${value} - ${object[value]} ${object[value] == 1 ? 'user' : 'useru'}`;
           applicationphone.appendChild(applicationcode);
         }
 
