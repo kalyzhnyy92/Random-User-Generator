@@ -26,7 +26,11 @@ function renerator(){
   myRequest.onreadystatechange = function() {
     if (myRequest.readyState == 4 && myRequest.status == 200) {
 
-      preloader.classList.remove('visible');
+      // Прелоадер до загрузки страницы
+      setTimeout(function () {
+        preloader.classList.remove('visible');
+      }, 3000);
+      
       let loadUsers = myRequest.response.results;
       
       loadUsers.forEach(function(author) {
