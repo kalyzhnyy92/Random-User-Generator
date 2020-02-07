@@ -216,7 +216,7 @@ body{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 10px 0;
+    padding: 10px 5px;
 }
 .application__code{
     padding: 5px;
