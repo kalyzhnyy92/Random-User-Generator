@@ -160,10 +160,10 @@ function renerator() { // Начало функции renerator
         resultscomparison.innerHTML = 'Equally: Men and women'; // установка содержимого для элемента
       }
 
-      // Посчитать кол-во человек по совпадающим кодам номеров телефонов
-      let applicationphone = document.createElement('div'); // создаем новый элемент div
-      applicationphone.classList.add('application__phone'); // создаем новый класс application__phone
-      common.appendChild(applicationphone); // append вставить applicationphone в конец common
+      // Посчитать кол-во человек по совпадающим национальностях
+      let applicationhationalities = document.createElement('div'); // создаем новый элемент div
+      applicationhationalities.classList.add('application__hationalities'); // создаем новый класс application__hationalities
+      common.appendChild(applicationhationalities); // append вставить applicationphone в конец common
 
       let object = []; // object - создаём массив
 
@@ -176,13 +176,13 @@ function renerator() { // Начало функции renerator
       // Циклы for
       for (let value in object) {
         // ... тело цикла ...
-        let applicationcode = document.createElement('div'); // создаем новый элемент div        
-        applicationcode.classList.add('application__code'); // создаем новый класс application__code
-        applicationcode.innerHTML = `${value} - ${object[value]} ${object[value] == 1 ? 'user' : 'useru'}`; // установка содержимого для элемента
-        codesFragment.appendChild(applicationcode); // append вставить applicationcode в конец codesFragment
+        let applicationcountry = document.createElement('div'); // создаем новый элемент div        
+        applicationcountry.classList.add('application__country'); // создаем новый класс application__country
+        applicationcountry.innerHTML = `${value} - ${object[value]} ${object[value] == 1 ? 'user' : 'useru'}`; // установка содержимого для элемента
+        codesFragment.appendChild(applicationcountry); // append вставить applicationcountry в конец codesFragment
       }
 
-      applicationphone.appendChild(codesFragment); // append вставить codesFragment в конец applicationphone
+      applicationhationalities.appendChild(codesFragment); // append вставить codesFragment в конец applicationhationalities
 
       document.querySelector('.result').appendChild(common);
     }
