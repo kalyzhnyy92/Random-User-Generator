@@ -212,12 +212,12 @@ body{
 .application__women{
     color: red;
 }
-.application__phone{
+.application__hationalities{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 10px 20px;
 }
-.application__code{
+.application__country{
     padding: 5px;
 }
