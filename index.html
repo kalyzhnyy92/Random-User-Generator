@@ -16,7 +16,7 @@
 	<!-- Прелоадер -->
   	<div class="preloader">
     	<div class="preloader__loader">
-      		<img class="preloader__img" src="img/sprite.svg" alt="Загрузка">
+      		<img class="preloader__img" src="img/loaders.svg" alt="Загрузка">
       		<div class="preloader__text">Подождите<br>
 				<span class="preloader__span">идет загрузка</span>
 			</div>
@@ -32,11 +32,55 @@
 		</div>
 		<div class="wrapper">
 			<div class="title">Random User Genertor</div>
+			<div class="search">
+				<form class="search__form">
+					<div class="search__filter">
+						<span class="search__span">
+							<svg class="search__icon" width="512" height="512" viewBox="0 0 515.558 515.558">
+								<use xlink:href="img/sprite.svg#search"></use>
+							</svg>
+						</span>
+						<input class="search__input" type="text" placeholder="Поиск: ФИО, номер телефона, email">
+						<button class="search__button search__reset" title="Очистить поиск" type="button">
+							<svg class="search__heart" viewBox="0 0 16 16" width="20px" height="20px">
+								<use xlink:href="img/sprite.svg#icon-close-modal"></use>
+							</svg>
+						</button>
+  						<button class="search__find" type="submit">Найти</button>
+					</div>
+				</form>
+			</div>
+			<div class="sort">
+				<form class="sort__form">
+					<div class="sort__wrapper">
+						<div class="sort__name">
+							<label for="az_sort" class="sort__label">Сортировать по алфавиту</label>
+							<select id="az_sort" class="sort__select">
+								<option value="0" selected>None</option>
+								<option value="1">A-Z</option>
+								<option value="-1">Z-A</option>
+							</select>
+						</div>
+						<div class="sort__gender">
+							<label for="gender_sort" class="sort__label">Сортировать по полу</label>
+							<select id="gender_sort" class="sort__select">
+								<option value="0" selected>None</option>
+								<option value="1">Сначала мужчины</option>
+								<option value="-1">Сначала женщины</option>
+							</select>
+						</div>
+					</div>
+					<div class="sort__assembly">
+						<button class="sort__button" type="submit">Сортировать</button>
+						<button class="sort__button" type="button" id="sort_reset">Сбросить</button>
+					</div>
+				</form>
+			</div>
 			<div class="details"></div>
 			<div class="result"></div>
 		</div>
 	</div>
-
+	
 	<script src="js/app.js"></script>
 
 </body>
