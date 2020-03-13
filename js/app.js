@@ -9,6 +9,7 @@ let preloader = document.querySelector('.preloader'); // Анимационны�
 let title = document.querySelector('.title'); // Заголовок
 let search = document.querySelector('.search'); // Поиск
 let sorting = document.querySelector('.sort'); // Сортировка
+let pagination = document.querySelector('.content-pagination'); // Пагинация
 
 const searchForm = document.querySelector('.search__form'); // Форма
 const searchInput = document.querySelector('.search__input'); // Фильтр поиск (одно поле)
@@ -60,7 +61,7 @@ searchResetButton.addEventListener('click', () => {
 // Сортировка списка
 const sortForm = document.querySelector('.sort__form'); // Сортировка в форме
 const azSortSelect = document.getElementById('az_sort'); // Сортировка по алфавиту
-const genderSortSelect = document.getElementById('gender_sort'); // Сортировка по половому признаку 
+const genderSortSelect = document.getElementById('gender_sort'); // Сортировка по половому признаку
 const resetSortButton = document.getElementById('sort_reset'); // Кнопка "Сбросить"
 
 // Регистрируем обработчик события 'submit' для элемента <form>
@@ -69,8 +70,8 @@ sortForm.addEventListener('submit', (e) => {
 
   const azSort = +azSortSelect.value; // инициализируем переменную, содержащую одно значение алфавита
   const genderSort = +genderSortSelect.value; // инициализируем переменную, содержащую одно значение пол
-
-  const users = [...allUsers];
+  
+  let users = [...allUsers];
 
   // Оператор if(алфавит или пол)
   if (azSort || genderSort) {
@@ -105,11 +106,48 @@ sortForm.addEventListener('submit', (e) => {
       });
     }
 
-    renderUsers(users);   
   }
+
+  // Статический фильтр по половому признаку Мужчина и Женщина
+  const genderFilter = document.querySelector('input[name=gender_filter]:checked').value;
+
+  if (genderFilter !== 'none') {
+    if (genderFilter === 'male') {
+      users = users.filter(user => user.gender === 'male');
+    }
+    if (genderFilter === 'female') {
+      users = users.filter(user => user.gender === 'female');
+    }
+  }
+
+  // Статический фильтр по возрасту
+  const ageFilter = document.querySelector('input[name=age_filter]:checked').value;
+
+  if (ageFilter !== 'none') {
+    users = users.filter(user => {
+
+      const { age } = user.dob;
+
+      switch (ageFilter) {
+        case '<35':
+          return age < 35;
+        case '35-40':
+          return age >= 35 && age < 40;
+        case '40-45':
+          return age >= 40 && age <= 45;
+        case '>45':
+          return age > 45;
+        default:
+          return true;
+      }
+    });
+  }
+
+  renderUsers(users);
 
   return false;
 });
+
 
 // Кнопка "Сбросить"
 resetSortButton.addEventListener('click', () => {
@@ -136,7 +174,8 @@ function renerator() { // Начало функции renerator
   preloader.classList.add('visible'); // нажимает на кнопку после прелоадер загрузки
   title.classList.add('active'); // нажимает на кнопку загрузки после появляется заголовок
   search.classList.add('active'); // нажимает на кнопку загрузки после появляется поиск
-  sorting.classList.add('active'); // нажимает на кнопку загрузки после появляется сортировка 
+  sorting.classList.add('active'); // нажимает на кнопку загрузки после появляется сортировка
+  pagination.classList.add('active'); // нажимает на кнопку загрузки после появляется пагинация
 
   let myRequest = new XMLHttpRequest(); // Создаём новый объект XMLHttpRequest
   myRequest.open('GET', randomUsers, true); // Конфигурируем его: GET-запрос на URL 'randomUsers'
