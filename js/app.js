@@ -2,7 +2,7 @@
 
 let allUsers = []; // инициализируем переменную, содержащую одно значение пустого массива
 
-// Document метод querySelector() возвращает первый элемент ( Element ) документа, 
+// Document метод querySelector() возвращает первый элемент ( Element ) документа,
 // который соответствует указанному селектору или группе селекторов.
 let button = document.querySelector('.js-button'); // Кнопка "Загрузить пользователей" по клику на кнопку.
 let preloader = document.querySelector('.preloader'); // Анимационный прелоадер загрузки.
@@ -152,7 +152,7 @@ sortForm.addEventListener('submit', (e) => {
 // Кнопка "Сбросить"
 resetSortButton.addEventListener('click', () => {
   sortForm.reset();
-  renderUsers(allUsers); 
+  renderUsers(allUsers);
 });
 
 // click – происходит, когда кликнули на элемент левой кнопкой мыши (на устройствах с сенсорными экранами 
